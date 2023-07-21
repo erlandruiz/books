@@ -1,11 +1,13 @@
-import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import './App.css'
-import { NavBar } from './components/NavBar/NavBar'
-import { Item } from './components/Item/Item'
 
-// import { NavBar, Item } from './components'
+import './App.css'
+import { NavBar, ItemCount } from './components/index.js';
+
+
+
+import { Home } from './pages/Home'
+
+
+
 
 
 
@@ -18,73 +20,26 @@ import { Item } from './components/Item/Item'
 
 
 function App() {
-  const [count, setCount] = useState(0);
-  const[active, setActive] = useState(false);
-  const [form, setFom] = useState({});
-  const numero = 5;
-  const styleButton ={
-    marginTop:'25px',
-  };
 
-  const handleCount = ()=>{
-    setCount(count +1)
+  const handlecart = (qty)=>{
+    console.log('la cantiad es' , qty);
   }
+ 
 
   return (
     <div>
       <NavBar />
-      <div className='container'>
-        <Item/>
-
-      {/* <div onClick={()=>{setActive(!active)}}
-      
-      style={
-        {
-          height:200,
-          width:200,
-          background: active ? 'red' : 'blue'
-        }
-      }/> */}
-      {/* <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={ "https://www.gandhi.com.mx/media/logo/stores/1/logo-gandhi-52-aniv.png"} 
-          className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div> */}
-
-      {/* <span   style ={{
-          display: 'block',
-          fontSize: '10rem'
-        }} >
-          {numero}
-       
-
-      </span>
-
-
-      <h1>Vite + React+ Erland</h1> */}
-      {/* <div className="card"> */}
-        {/* <button style={styleButton} onClick={() => setCount((count) => count + 1)}> */}
-        {/* <button style={styleButton} onClick={() => handleCount()}>
-          count is {count}
-        </button> */}
-        {/* <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p> */}
-      </div>
-      {/* <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
-    {/* </div> */}
+      <Home/>
+      <ItemCount stock={10} onAdd={handlecart}/>
+      <ItemCount stock={0} onAdd={handlecart}/>
+    
+  
 
 
 
       </div>
 
-  )
+  );
 }
 
 export default App
