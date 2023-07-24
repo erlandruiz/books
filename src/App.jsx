@@ -1,6 +1,7 @@
 
 import './App.css'
-import { NavBar, ItemCount } from './components/index.js';
+import { NavBar, ItemCount, Item, ItemListContainer } from './components/index.js';
+import { Detail } from './pages/Detail';
 
 
 
@@ -29,9 +30,21 @@ function App() {
   return (
     <div>
       <NavBar />
+
+    
       <Home/>
-      <ItemCount stock={10} onAdd={handlecart}/>
-      <ItemCount stock={0} onAdd={handlecart}/>
+      <Detail/>
+
+      {/* <div className='item-padre'>
+      <div className='container-item'>
+
+<ItemCount stock={10} onAdd={handlecart}/>
+
+</div>
+
+      </div> */}
+      
+      {/* <ItemCount stock={0} onAdd={handlecart}/> */}
     
   
 
