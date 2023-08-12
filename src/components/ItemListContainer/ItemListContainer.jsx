@@ -1,41 +1,35 @@
 import { Item } from "../Item/Item";
 import "./ItemListContainer.css";
 
+export const ItemListContainer = ({ products, loading = false }) => {
+  return (
+    <div className="item-list">
+      {loading ? (
+        <>
+          <div className="skeleton">
+            <div className="skeleton__img"></div>
+          </div>
+          <div className="skeleton">
+            <div className="skeleton__img"></div>
+          </div>
+          <div className="skeleton">
+            <div className="skeleton__img"></div>
+          </div>
+        </>
+      ) : (
+        products.map((product) => (
+          <Item
+            key={product.id}
+            // {...product}
 
-export const  ItemListContainer = ({products})=>{
-
-    return (
-
-        <div className="item-list">
-
-            {
-                products.map((product)=><Item
-                key={product.id}
-                // {...product}
-                
-                img={product.img} 
-                category={product.category} 
-                title={product.title} 
-                price={product.price}
-                
-                
-                />)
-            }
-            <h1>
-
-
-        
-            </h1>
-    
-        </div>
-
-    );
-
-       
-
-
-    
-
-
-
-}
+            id={product.id}
+            img={product.img}
+            category={product.category}
+            title={product.title}
+            price={product.price}
+          />
+        ))
+      )}
+    </div>
+  );
+};
